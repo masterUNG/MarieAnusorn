@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "58995919040",
+    "firebase_url": "https://marieanusorn-bd47d.firebaseio.com",
+    "project_id": "marieanusorn-bd47d",
+    "storage_bucket": "marieanusorn-bd47d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58995919040:android:8d098420fb7593f3ba4525",
+        "android_client_info": {
+          "package_name": "com.flutterthailand.marieanusorn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58995919040-pkb7rc7euvgm8aghauba51jrrkt6gpc5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG_5xEsYcgr_cGWbtnhNvzWmwBpPHOsDU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "58995919040-pkb7rc7euvgm8aghauba51jrrkt6gpc5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
