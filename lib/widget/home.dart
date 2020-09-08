@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gradients/flutter_gradients.dart';
 import 'package:marieanusorn/utility/my_style.dart';
 
 class Home extends StatefulWidget {
@@ -23,16 +24,21 @@ class _HomeState extends State<Home> {
               onPressed: () {})
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            MyStyle().showLogo(),
-            MyStyle().titleH1('โรงเรียน มารีย์อนุสรณ์'),
-            buildTextFieldUser(),
-            buildTextFieldPassword(),
-            buildRaisedButton(),
-          ],
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: MyStyle().gradient(),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              MyStyle().showLogo(),
+              MyStyle().titleH1('โรงเรียน มารีย์อนุสรณ์'),
+              buildTextFieldUser(),
+              buildTextFieldPassword(),
+              buildRaisedButton(),
+            ],
+          ),
         ),
       ),
     );
@@ -83,7 +89,10 @@ class _HomeState extends State<Home> {
           decoration: InputDecoration(
             border: InputBorder.none,
             hintText: 'Password',
-            suffixIcon: IconButton(icon: Icon(Icons.remove_red_eye), onPressed: (){},),
+            suffixIcon: IconButton(
+              icon: Icon(Icons.remove_red_eye),
+              onPressed: () {},
+            ),
             contentPadding: EdgeInsets.only(left: 16, top: 5),
           ),
         ),

@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gradients/flutter_gradients.dart';
 
 class MyStyle {
   Color drakColor = Colors.indigo;
+
+  Gradient gradient() {
+    return FlutterGradients.saintPetersburg(
+      type: GradientType.radial,
+      radius: 1.2,
+    );
+  }
 
   Widget titleH1(String string) {
     return Padding(
@@ -17,7 +25,7 @@ class MyStyle {
     );
   }
 
-   Widget titleH2(String string) {
+  Widget titleH2(String string) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Text(
