@@ -1,6 +1,12 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gradients/flutter_gradients.dart';
+import 'package:marieanusorn/models/user_model.dart';
+import 'package:marieanusorn/utility/my_constant.dart';
 import 'package:marieanusorn/utility/my_style.dart';
+import 'package:marieanusorn/utility/normal_dialog.dart';
+import 'package:marieanusorn/widget/my_service.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -8,6 +14,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  String user, password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +58,16 @@ class _HomeState extends State<Home> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          onPressed: () {},
+          onPressed: () {
+            if (user == null ||
+                user.isEmpty ||
+                password == null ||
+                password.isEmpty) {
+              normalDialog(context, 'กรุณากรอก ทุกช่อง คะ');
+            } else {
+              checkAuthen();
+            }
+          },
           child: Text('Login'),
         ),
       );
@@ -66,6 +82,7 @@ class _HomeState extends State<Home> {
         width: 220,
         height: 40,
         child: TextField(
+          onChanged: (value) => user = value.trim(),
           decoration: InputDecoration(
             border: InputBorder.none,
             hintText: 'User',
@@ -85,6 +102,7 @@ class _HomeState extends State<Home> {
         width: 220,
         height: 40,
         child: TextField(
+          onChanged: (value) => password = value.trim(),
           obscureText: true,
           decoration: InputDecoration(
             border: InputBorder.none,
@@ -97,4 +115,35 @@ class _HomeState extends State<Home> {
           ),
         ),
       );
+
+  Future<Null> checkAuthen() async {
+    String path =
+        '${MyConstant().domain}/App/getUserWhereUser.php?isAdd=true&User=$user';
+    // print('path ==>> $path');
+    await Dio().get(path).then((value) {
+      // print('value ==> ${value.toString()}');
+      if (value.toString() == 'null') {
+        normalDialog(context, 'ไม่มี $user นี่ใน ฐานข้อมูลของเรา');
+      } else {
+        var result = json.decode(value.data);
+        for (var json in result) {
+          UserModel model = UserModel.fromJson(json);
+          if (password == model.password) {
+            routeToService();
+          } else {
+            normalDialog(context, 'Password ผิดคะ กรุณาลองใหม่ คะ');
+          }
+        }
+      }
+    });
+  }
+
+  void routeToService() {
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MyService(),
+        ),
+        (route) => false);
+  }
 }
