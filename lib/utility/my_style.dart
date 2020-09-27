@@ -4,6 +4,10 @@ import 'package:flutter_gradients/flutter_gradients.dart';
 class MyStyle {
   Color drakColor = Colors.indigo;
 
+  Widget showProgress() {
+    return Center(child: CircularProgressIndicator());
+  }
+
   Gradient gradient() {
     return FlutterGradients.saintPetersburg(
       type: GradientType.radial,
