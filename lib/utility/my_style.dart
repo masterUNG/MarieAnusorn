@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gradients/flutter_gradients.dart';
 
 class MyStyle {
+  Gradient gradient() {
+    return FlutterGradients.fruitBlend(
+      type: GradientType.radial,
+      radius: 1.2,
+    );
+  }
+
+  MyStyle();
+
   Color drakColor = Colors.indigo;
 
   Widget showProgress() {
     return Center(child: CircularProgressIndicator());
-  }
-
-  Gradient gradient() {
-    return FlutterGradients.saintPetersburg(
-      type: GradientType.radial,
-      radius: 1.2,
-    );
   }
 
   Widget titleH1(String string) {
@@ -49,6 +51,4 @@ class MyStyle {
       child: Image.asset('images/logo_marie.png'),
     );
   }
-
-  MyStyle();
 }

@@ -20,8 +20,7 @@ class _HomeState extends State<Home> {
   bool statusLogin = true;
 
   @override
-  void initState() {
-    // TODO: implement initState
+  void initState() { 
     super.initState();
     checkLogin();
   }
@@ -69,7 +68,7 @@ class _HomeState extends State<Home> {
   Widget buildRaisedButton() => Container(
         margin: EdgeInsets.only(top: 8),
         width: 220,
-        child: RaisedButton(
+        child: RaisedButton(color: Colors.white60,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
@@ -90,7 +89,7 @@ class _HomeState extends State<Home> {
   Widget buildTextFieldUser() => Container(
         margin: EdgeInsets.only(top: 8),
         decoration: BoxDecoration(
-          color: Colors.black12,
+          color: Colors.white54,
           borderRadius: BorderRadius.circular(30),
           border: Border.all(color: MyStyle().drakColor),
         ),
@@ -110,7 +109,7 @@ class _HomeState extends State<Home> {
   Widget buildTextFieldPassword() => Container(
         margin: EdgeInsets.only(top: 8),
         decoration: BoxDecoration(
-          color: Colors.black12,
+          color: Colors.white54,
           borderRadius: BorderRadius.circular(30),
           border: Border.all(color: MyStyle().drakColor),
         ),
